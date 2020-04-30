@@ -11,7 +11,9 @@ The processor end part of the code is mostly done by the SDK part where in we ne
 
 Telecommand IP:(input 11 slave_registers & output is tc_out,tcclk_out) (works on rising edge of clock)
 	
-	In this IP we have used 11 slave registers of dataline 32. These slave registers act as an input to the user logic. The slave_register 0 act as control register whose LSB is used as the tc_start signal.
+	In this IP we have used 11 slave registers of dataline 32. 
+	These slave registers act as an input to the user logic. 
+	The slave_register 0 act as control register whose LSB is used as the tc_start signal.
 This signal is made high in the processor(SDK) when the remaining 10 slave_registers are filled with valid data given by the UI. 
 
 In the PL end , we will be waiting for the tc_start signal to be high, when this signal becomes high we load the 32 bit data from slv_reg into 32bit piso register from where there is serial output.
